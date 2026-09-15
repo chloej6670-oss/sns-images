@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DISC 행동유형 자가진단">
+<meta property="og:description" content="교육용 약식 자가진단 · 24문항 · 약 7분">
+<meta property="og:url" content="https://sns-images-beta.vercel.app/disc/">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>DISC 행동유형 자가진단</title>
+<meta name="description" content="DISC 이론을 바탕으로 교육용으로 만든 약식 행동유형 자가진단">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #F3F4F7;
+    --surface: #FFFFFF;
+    --soft: #E8EAEF;
+    --line: #D9DCE3;
+    --ink: #161A23;
+    --muted: #5B6272;
+    --on-ink: #FFFFFF;
+    --focus: #2C62A8;
+
+    --d: #C4412B; --d-ink: #B03A26; --d-tint: #F5E3DF;
+    --i: #D99A0B; --i-ink: #946600; --i-tint: #F7EED6;
+    --s: #2F8559; --s-ink: #276F4B; --s-tint: #E0EEE6;
+    --c: #2C62A8; --c-ink: #28599A; --c-tint: #E0E8F3;
+
+    --display: "Hahmlet", "Nanum Myeongjo", "AppleMyungjo", Georgia, serif;
+    --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F1218; --surface: #181C25; --soft: #232834; --line: #2C3240;
+      --ink: #E8EBF1; --muted: #9AA2B1; --on-ink: #0F1218; --focus: #6FA0E6;
+      --d: #E0654D; --d-ink: #F08A75; --d-tint: #3A2320;
+      --i: #E9B23A; --i-ink: #F2C764; --i-tint: #3A3020;
+      --s: #4FB07F; --s-ink: #72C79B; --s-tint: #1E3429;
+      --c: #5B90DA; --c-ink: #86AEE8; --c-tint: #1F2B3D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F1218; --surface: #181C25; --soft: #232834; --line: #2C3240;
+    --ink: #E8EBF1; --muted: #9AA2B1; --on-ink: #0F1218; --focus: #6FA0E6;
+    --d: #E0654D; --d-ink: #F08A75; --d-tint: #3A2320;
+    --i: #E9B23A; --i-ink: #F2C764; --i-tint: #3A3020;
+    --s: #4FB07F; --s-ink: #72C79B; --s-tint: #1E3429;
+    --c: #5B90DA; --c-ink: #86AEE8; --c-tint: #1F2B3D;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    padding-inline: 16px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding-block: 20px 72px; }
+  .wrap.wide { max-width: 920px; }
+
+  /* ---------- header ---------- */
+  .masthead { display: flex; align-items: center; gap: 10px; padding-block: 4px 28px; }
+  .mark { display: grid; grid-template-columns: repeat(2, 9px); gap: 2px; }
+  .mark i { width: 9px; height: 9px; border-radius: 2px; display: block; }
+  .mark .m-d { background: var(--d); } .mark .m-i { background: var(--i); }
+  .mark .m-c { background: var(--c); } .mark .m-s { background: var(--s); }
+  .masthead-title { font-weight: 600; font-size: .9rem; letter-spacing: .01em; }
+  .masthead-sub { margin-left: auto; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+
+  .eyebrow { font-size: .8rem; font-weight: 600; color: var(--muted); letter-spacing: .06em; }
+  .stack { display: grid; gap: 28px; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; padding: 0 22px; border-radius: 12px;
+    border: 1.5px solid var(--ink); background: var(--ink); color: var(--on-ink);
+    font-weight: 600; font-size: 1rem; cursor: pointer;
+    transition: transform .12s ease, opacity .12s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--muted); }
+  .btn-link {
+    background: none; border: 0; padding: 4px 0; cursor: pointer; color: var(--muted);
+    text-decoration: underline; text-underline-offset: 3px; font-size: .92rem;
+  }
+  .btn-link:hover { color: var(--ink); }
+
+  /* ---------- intro ---------- */
+  .intro-head { display: grid; gap: 14px; }
+  .intro-head h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.1rem, 8vw, 2.9rem); line-height: 1.15; letter-spacing: -.02em; }
+  .lead { font-size: 1.08rem; color: var(--muted); max-width: 34em; }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-block: 16px; border-block: 1px solid var(--line); }
+  .fact { display: flex; align-items: baseline; gap: 6px; }
+  .fact b { font-family: var(--mono); font-weight: 600; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+  .fact span { color: var(--muted); font-size: .92rem; }
+
+  .quad {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  }
+  .quad-cell { background: var(--surface); padding: 16px; display: grid; gap: 4px; align-content: start; }
+  .quad-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .q-letter { font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; }
+  .q-name { font-weight: 700; }
+  .q-en { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+  .q-keys { font-size: .88rem; color: var(--muted); }
+  .q-tip { font-size: .88rem; margin-top: 6px; }
+  .q-mine { font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: var(--on-ink); margin-left: auto; }
+  .t-D { color: var(--d-ink); } .t-I { color: var(--i-ink); } .t-S { color: var(--s-ink); } .t-C { color: var(--c-ink); }
+  .quad-caption { font-size: .82rem; color: var(--muted); margin-top: 10px; }
+
+  .notice {
+    display: grid; gap: 4px; padding: 14px 16px; border-radius: 12px;
+    background: var(--surface); border: 1.5px solid var(--line); font-size: .92rem; color: var(--muted);
+  }
+  .notice b { color: var(--ink); font-weight: 700; font-size: .95rem; }
+  .tag { justify-self: start; font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1.5px solid var(--ink); color: var(--ink); }
+
+  .section-title { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.01em; margin-bottom: 12px; }
+
+  .howto { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: step; }
+  .howto li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; counter-increment: step; }
+  .howto li::before {
+    content: counter(step); width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; font-family: var(--mono); font-size: .85rem; font-weight: 600;
+    border: 1.5px solid var(--line); background: var(--surface);
+  }
+  .howto strong { font-weight: 600; }
+
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .fields { grid-template-columns: 1fr; } }
+  .field { display: grid; gap: 6px; }
+  .field label { font-size: .88rem; font-weight: 600; }
+  .field label span { color: var(--muted); font-weight: 400; }
+  .field input {
+    height: 50px; padding: 0 14px; border-radius: 10px;
+    border: 1.5px solid var(--line); background: var(--surface); width: 100%;
+  }
+  .field input:focus { border-color: var(--ink); outline: none; }
+  .fields-note { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+
+  .cta { display: grid; gap: 10px; }
+  .cta .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cta .row .btn { flex: 1 1 200px; }
+  .cta-foot { display: flex; justify-content: center; }
+
+  /* ---------- quiz ---------- */
+  .quiz-top { display: flex; align-items: center; gap: 12px; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 8px;
+    border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); cursor: pointer; font-size: .9rem;
+  }
+  .back:hover { border-color: var(--muted); }
+  .q-count { margin-left: auto; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; font-size: .95rem; }
+  .q-count span { color: var(--muted); font-weight: 500; }
+  .ticks { display: grid; grid-template-columns: repeat(24, 1fr); gap: 3px; margin-top: 14px; }
+  .ticks i { height: 6px; border-radius: 2px; background: var(--soft); display: block; }
+  .ticks i.done { background: var(--ink); }
+  .ticks i.now { background: var(--muted); }
+
+  .prompt { display: grid; gap: 8px; margin-top: 30px; }
+  .phases { display: flex; gap: 8px; flex-wrap: wrap; }
+  .phase {
+    font-size: .8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+    border: 1.5px solid var(--line); color: var(--muted);
+  }
+  .phase.on { border-color: var(--ink); background: var(--ink); color: var(--on-ink); }
+  .phase.past { border-color: var(--line); color: var(--ink); }
+  .prompt h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.45rem, 5.4vw, 1.75rem); line-height: 1.3; letter-spacing: -.015em; margin-top: 6px; }
+  .prompt h2 em { font-style: normal; box-shadow: inset 0 -.38em 0 var(--soft); }
+  .prompt p { color: var(--muted); font-size: .95rem; }
+
+  .options { display: grid; gap: 10px; margin-top: 22px; }
+  .opt {
+    display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+    min-height: 66px; padding: 14px 16px; border-radius: 14px;
+    border: 1.5px solid var(--line); background: var(--surface); cursor: pointer;
+    font-size: 1.04rem; line-height: 1.5;
+    transition: border-color .12s ease, background-color .12s ease, color .12s ease;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--muted); }
+  .opt-key {
+    flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+    border: 1.5px solid var(--line); font-family: var(--mono); font-size: .8rem; font-weight: 600; color: var(--muted);
+  }
+  .opt-text { flex: 1 1 auto; }
+  .opt-badge { flex: none; font-size: .74rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .opt.is-most { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+  .opt.is-most .opt-key { border-color: currentColor; color: inherit; }
+  .opt.is-most .opt-badge { background: var(--on-ink); color: var(--ink); }
+  .opt.is-most:disabled { background: var(--soft); border-color: var(--soft); color: var(--muted); cursor: default; }
+  .opt.is-most:disabled .opt-badge { background: var(--ink); color: var(--on-ink); }
+  .opt.is-least { border-color: var(--ink); border-style: dashed; }
+  .opt.is-least .opt-key { border-color: var(--ink); color: var(--ink); }
+  .opt.is-least .opt-badge { border: 1.5px solid var(--ink); }
+  .quiz-hint { margin-top: 18px; font-size: .82rem; color: var(--muted); }
+
+  /* ---------- result ---------- */
+  .sample-banner {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between;
+    padding: 12px 16px; border-radius: 12px; border: 1.5px dashed var(--muted); font-size: .92rem;
+  }
+  .hero { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; align-items: center; }
+  .big-letter { font-family: var(--display); font-weight: 800; font-size: clamp(6rem, 26vw, 9.5rem); line-height: .82; letter-spacing: -.04em; }
+  .hero-text { display: grid; gap: 6px; }
+  .hero-text h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; }
+  .hero-text h1 small { font-family: var(--mono); font-size: .85rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-left: 6px; }
+  .hero-line { font-size: 1.1rem; }
+  @media (max-width: 460px) { .hero { grid-template-columns: 1fr; } }
+
+  .blend { padding: 18px 20px; border-radius: 16px; display: grid; gap: 6px; }
+  .blend-label { font-family: var(--mono); font-size: .78rem; font-weight: 600; letter-spacing: .04em; }
+  .blend-title { font-weight: 700; font-size: 1.12rem; }
+  .blend p { font-size: .98rem; }
+  .blend .note { color: var(--muted); font-size: .9rem; }
+
+  .grid2 { display: grid; gap: 16px; }
+  @media (min-width: 780px) { .grid2 { grid-template-columns: 1.15fr 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 14px; align-content: start; }
+  .panel h2 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+  .panel-note { font-size: .82rem; color: var(--muted); }
+
+  .bars { display: grid; gap: 14px; }
+  .bar-row { display: grid; grid-template-columns: 26px 1fr 46px; column-gap: 12px; align-items: center; }
+  .bar-letter { font-family: var(--display); font-weight: 800; font-size: 1.35rem; line-height: 1; }
+  .track {
+    position: relative; height: 26px; border-radius: 6px; background: var(--soft);
+  }
+  .track::before, .track::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .track::before { left: 25%; } .track::after { left: 75%; }
+  .track .zero { position: absolute; left: 50%; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--ink); border-radius: 1px; z-index: 2; }
+  .fill { position: absolute; top: 4px; bottom: 4px; border-radius: 4px; z-index: 1; }
+  .bar-val { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+  .bar-meta { grid-column: 2 / 4; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 4px; }
+  .scale { position: relative; height: 16px; }
+  .scale span { position: absolute; transform: translateX(-50%); font-family: var(--mono); font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .quad-svg { width: 100%; max-width: 360px; height: auto; margin: 0 auto; display: block; }
+  .qs-d { fill: var(--d-tint); } .qs-i { fill: var(--i-tint); } .qs-s { fill: var(--s-tint); } .qs-c { fill: var(--c-tint); }
+  .qs-axis { stroke: var(--line); stroke-width: 1.5; }
+  .qs-letter { font-family: var(--display); font-weight: 800; font-size: 26px; }
+  .qs-letter.D { fill: var(--d-ink); } .qs-letter.I { fill: var(--i-ink); } .qs-letter.S { fill: var(--s-ink); } .qs-letter.C { fill: var(--c-ink); }
+  .qs-name { font-family: var(--body); font-size: 11px; fill: var(--muted); }
+  .qs-label { font-family: var(--body); font-size: 11px; fill: var(--muted); font-weight: 600; }
+  .qs-dot { fill: var(--ink); stroke: var(--surface); stroke-width: 3; }
+  .qs-me { font-family: var(--body); font-size: 12px; font-weight: 700; fill: var(--ink); }
+
+  .detail-grid { display: grid; gap: 0 36px; }
+  @media (min-width: 640px) { .detail-grid { grid-template-columns: 1fr 1fr; } }
+  .detail { border-top: 1px solid var(--line); padding-block: 16px; display: grid; gap: 8px; align-content: start; }
+  .detail h3 { font-size: .92rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .detail h3::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent, var(--ink)); }
+  .detail ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+  .detail li { position: relative; padding-left: 14px; font-size: .96rem; }
+  .detail li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 1.5px; background: var(--muted); }
+  .growth { border-radius: 16px; padding: 18px 20px; display: grid; gap: 6px; background: var(--surface); border: 1.5px solid var(--accent, var(--ink)); }
+  .growth b { font-size: .92rem; }
+
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .actions .btn { flex: 1 1 220px; }
+  .copy-fallback { width: 100%; min-height: 150px; padding: 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); font-family: var(--mono); font-size: .82rem; line-height: 1.6; resize: vertical; }
+  .capture-hint { font-size: .85rem; color: var(--muted); text-align: center; }
+
+  .footnote { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); display: grid; gap: 6px; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+    background: var(--ink); color: var(--on-ink); padding: 10px 18px; border-radius: 999px;
+    font-size: .9rem; font-weight: 600; box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 10; max-width: calc(100% - 32px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="wrap" id="wrap">
+  <header class="masthead">
+    <div class="mark" aria-hidden="true"><i class="m-d"></i><i class="m-i"></i><i class="m-c"></i><i class="m-s"></i></div>
+    <span class="masthead-title">DISC 행동유형 자가진단</span>
+    <span class="masthead-sub" id="masthead-sub">교육용 약식</span>
+  </header>
+
+  <!-- ================= INTRO ================= -->
+  <main id="view-intro" class="stack">
+    <div class="intro-head">
+      <span class="tag">교육용 약식 자가진단</span>
+      <p class="eyebrow">일터에서의 나를 알아보는 시간</p>
+      <h1 id="intro-title" tabindex="-1">나는 어떤 방식으로<br>일하고 소통할까?</h1>
+      <p class="lead">평소 일할 때의 행동을 네 가지 경향으로 살펴봅니다. 정답도, 더 좋은 유형도 없습니다. 서로 다른 방식을 이해하는 출발점입니다.</p>
+      <div class="notice">
+        <b>시작하기 전에</b>
+        <p>이 진단은 DISC 이론을 바탕으로 교육 시간에 쓰도록 만든 간단한 자가진단입니다. 표준화·검증을 거친 공식 심리검사가 아니므로, 결과는 나를 돌아보고 동료와 이야기를 나누는 참고 자료로 활용해 주세요.</p>
+      </div>
+    </div>
+
+    <div class="facts" aria-label="진단 개요">
+      <div class="fact"><b>24</b><span>문항</span></div>
+      <div class="fact"><b>약 7</b><span>분</span></div>
+      <div class="fact"><b>4</b><span>가지 행동 경향</span></div>
+    </div>
+
+    <section>
+      <h2 class="section-title">네 가지 행동 경향</h2>
+      <div class="quad" id="intro-quad"></div>
+      <p class="quad-caption">심리학자 윌리엄 M. 마스턴(William Moulton Marston)은 1928년 『Emotions of Normal People』에서 사람의 행동을 네 가지 경향으로 설명했습니다. 괄호 안은 마스턴이 처음 붙인 이름입니다.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">응답 방법</h2>
+      <ol class="howto">
+        <li><div>한 화면에 <strong>네 개의 문장</strong>이 나옵니다.</div></li>
+        <li><div>먼저 나와 <strong>가장 비슷한</strong> 문장 하나, 이어서 <strong>가장 거리가 먼</strong> 문장 하나를 고릅니다.</div></li>
+        <li><div>되고 싶은 모습이 아니라 <strong>일터에서의 평소 내 모습</strong>을 기준으로, 오래 고민하지 말고 떠오르는 대로 고르세요.</div></li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="fields">
+        <div class="field">
+          <label for="in-name">이름 <span>(선택)</span></label>
+          <input id="in-name" type="text" autocomplete="name" maxlength="20" placeholder="홍길동">
+        </div>
+        <div class="field">
+          <label for="in-org">소속·과정명 <span>(선택)</span></label>
+          <input id="in-org" type="text" maxlength="30" placeholder="영업1팀">
+        </div>
+      </div>
+      <p class="fields-note">입력한 내용과 응답은 이 기기의 브라우저에만 저장되며 어디에도 전송되지 않습니다.</p>
+    </section>
+
+    <div class="cta">
+      <div class="row">
+        <button class="btn" id="btn-start" type="button">진단 시작하기</button>
+        <button class="btn btn-ghost" id="btn-resume" type="button" hidden>이어서 하기</button>
+      </div>
+      <div class="cta-foot"><button class="btn-link" id="btn-sample" type="button">결과 화면 예시 먼저 보기</button></div>
+    </div>
+  </main>
+
+  <!-- ================= QUIZ ================= -->
+  <main id="view-quiz" hidden>
+    <div class="quiz-top">
+      <button class="back" id="btn-back" type="button" aria-label="이전 단계로">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        이전
+      </button>
+      <div class="q-count" id="q-count" aria-live="polite"></div>
+    </div>
+    <div class="ticks" id="ticks" aria-hidden="true"></div>
+
+    <div class="prompt">
+      <div class="phases" aria-hidden="true">
+        <span class="phase" id="ph-most">① 가장 그렇다</span>
+        <span class="phase" id="ph-least">② 가장 아니다</span>
+      </div>
+      <h2 id="q-title" tabindex="-1"></h2>
+      <p id="q-sub"></p>
+    </div>
+
+    <div class="options" id="options" role="group" aria-labelledby="q-title"></div>
+    <p class="quiz-hint">키보드의 1–4 숫자키로도 고를 수 있습니다. 응답은 자동 저장되어 창을 닫아도 이어서 할 수 있습니다.</p>
+  </main>
+
+  <!-- ================= RESULT ================= -->
+  <main id="view-result" class="stack" hidden></main>
+
+  <footer class="footnote">
+    <p>본 진단은 마스턴 박사의 DISC 이론을 바탕으로 교육용으로 구성한 약식 자기보고 진단입니다. 표준화된 심리검사나 채용·평가 도구를 대체하지 않으며, 결과는 자기 이해와 소통을 돕는 참고 자료로만 활용해 주세요.</p>
+    <p>제작 (주)티케그룹</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var ORDER = ["D", "I", "S", "C"];
+  var QUAD = ["D", "I", "C", "S"]; // 2x2 배치: 위(D I) · 아래(C S)
+  var KEY = "disc-diagnosis-v1";
+
+  var TYPES = {
+    D: {
+      ko: "주도형", en: "Dominance", marston: "Dominance",
+      line: "목표를 향해 앞장서서 길을 여는 사람",
+      keys: "결과 · 도전 · 결단",
+      tip: "결론부터 짧게, 선택지는 분명하게",
+      strengths: ["빠르고 과감한 의사결정", "어려운 목표도 밀어붙이는 추진력", "위기 상황에서 앞장서는 책임감"],
+      overuse: ["성급하게 결론을 내린다", "다른 사람의 의견과 감정을 놓친다", "지나치게 직설적으로 들린다"],
+      motivators: ["스스로 결정할 수 있는 권한", "도전적인 목표와 눈에 보이는 성과", "결과에 대한 분명한 인정"],
+      avoid: ["주도권이나 통제력을 잃는 상황", "이용당하거나 약해 보이는 것", "결론 없이 길어지는 논의"],
+      stress: ["더 강하게 지시하고 통제하려 한다", "참을성이 줄고 말이 날카로워진다"],
+      workWith: ["요점과 결론부터 전달한다", "선택지를 주고 결정권을 존중한다", "감정보다 결과와 근거로 이야기한다"],
+      growth: "속도를 한 박자 늦추고 끝까지 듣는 연습이 영향력을 더 키웁니다. 결과만큼 과정과 사람을 함께 챙겨 보세요."
+    },
+    I: {
+      ko: "사교형", en: "Influence", marston: "Inducement",
+      line: "사람과 에너지를 모아 분위기를 움직이는 사람",
+      keys: "열정 · 설득 · 관계",
+      tip: "친근하게 시작하고, 아이디어에 반응해 주기",
+      strengths: ["사람을 끌어당기는 친화력과 설득력", "새로운 아이디어와 긍정적인 에너지", "팀의 사기를 끌어올리는 표현력"],
+      overuse: ["즉흥적으로 움직여 세부 사항을 놓친다", "지나치게 낙관해 위험을 가볍게 본다", "말이 앞서고 마무리가 약해진다"],
+      motivators: ["공개적인 칭찬과 인정", "사람들과 어울리며 일하는 분위기", "자유롭게 표현할 수 있는 환경"],
+      avoid: ["거절당하거나 무시당하는 것", "혼자 반복적인 일을 오래 하는 것", "딱딱하고 경직된 분위기"],
+      stress: ["감정적으로 반응하거나 말이 많아진다", "일이 흩어지고 정리가 어려워진다"],
+      workWith: ["가벼운 대화로 관계를 먼저 연다", "아이디어를 들어 주고 공개적으로 인정한다", "세부 일정과 할 일은 글로 정리해 건넨다"],
+      growth: "우선순위와 마감을 눈에 보이게 관리하면 열정이 성과로 이어집니다. 말하기 전에 사실을 한 번 더 확인해 보세요."
+    },
+    S: {
+      ko: "안정형", en: "Steadiness", marston: "Submission",
+      line: "한결같은 신뢰로 팀을 받쳐 주는 사람",
+      keys: "협력 · 인내 · 신뢰",
+      tip: "변화는 미리, 이유와 함께 차분히",
+      strengths: ["끝까지 들어 주는 경청과 공감", "맡은 일을 꾸준히 해내는 성실함", "팀을 편안하게 만드는 안정감"],
+      overuse: ["변화를 늦추거나 피한다", "부탁을 거절하지 못해 일을 떠안는다", "자기 의견을 충분히 말하지 않는다"],
+      motivators: ["예측 가능한 일정과 역할", "진심이 담긴 감사 표현", "서로 돕는 조화로운 관계"],
+      avoid: ["예고 없는 갑작스러운 변화", "공개적인 갈등과 대립", "안정감이 흔들리는 불확실한 상황"],
+      stress: ["겉으로는 따르지만 속으로 쌓아 둔다", "소극적으로 버티거나 말수가 줄어든다"],
+      workWith: ["변화는 충분한 시간과 이유를 두고 알린다", "의견을 직접, 편안하게 물어본다", "재촉하기보다 차근차근 단계를 안내한다"],
+      growth: "“지금은 어렵습니다”라고 말하는 것도 팀을 위한 일입니다. 작은 변화부터 먼저 제안해 보세요."
+    },
+    C: {
+      ko: "신중형", en: "Conscientiousness", marston: "Compliance",
+      line: "정확한 기준으로 일의 완성도를 지키는 사람",
+      keys: "정확 · 분석 · 체계",
+      tip: "근거와 자료를 갖추고, 생각할 시간 주기",
+      strengths: ["사실과 데이터를 바탕으로 한 분석력", "실수를 줄이는 정확성과 꼼꼼함", "체계적인 계획과 품질 관리"],
+      overuse: ["완벽을 기하다 결정이 늦어진다", "비판적으로 들리거나 까다로워 보인다", "규칙에 얽매여 융통성이 줄어든다"],
+      motivators: ["명확한 기준과 기대치", "전문성에 대한 인정", "충분한 정보와 검토할 시간"],
+      avoid: ["근거 없는 비판이나 실수에 대한 지적", "기준이 모호한 지시", "준비할 시간 없이 결정을 강요받는 것"],
+      stress: ["방어적으로 되거나 대화를 피한다", "더 세밀하게 따지고 까다로워진다"],
+      workWith: ["근거와 자료를 함께 제시한다", "질문에 구체적으로 답하고 검토할 시간을 준다", "감정적 압박보다 논리로 설득한다"],
+      growth: "80% 완성된 시점에 먼저 공유해 보세요. 적절한 때의 결정이 완벽한 결정만큼 중요합니다."
+    }
+  };
+
+  var BLENDS = {
+    DI: ["결과를 향해 사람을 모으는 개척자", "추진력에 설득력이 더해져 새로운 일을 시작하고 사람들을 끌어들입니다."],
+    DS: ["끈기 있게 끝을 보는 실행가", "결단력과 꾸준함으로 맡은 목표를 마지막까지 책임집니다."],
+    DC: ["기준이 높은 도전가", "성과와 품질을 함께 추구하며 논리적으로 밀어붙입니다."],
+    ID: ["에너지 넘치는 추진가", "열정으로 사람을 끌어들이고 생각을 과감하게 실행에 옮깁니다."],
+    IS: ["따뜻한 분위기 메이커", "친화력과 배려로 팀의 관계와 분위기를 돌봅니다."],
+    IC: ["설득력 있는 전달자", "아이디어를 매력과 논리로 풀어내 사람들을 납득시킵니다."],
+    SI: ["다정한 연결자", "사람을 편안하게 하며 신뢰를 바탕으로 팀을 이어 줍니다."],
+    SD: ["조용한 완수자", "안정감을 주면서도 필요한 순간에는 단호하게 마무리합니다."],
+    SC: ["믿음직한 실무 전문가", "차분하고 꼼꼼하게 일정한 품질을 지켜 냅니다."],
+    CD: ["원칙 있는 결정자", "철저한 분석을 바탕으로 분명한 결론을 내립니다."],
+    CI: ["근거로 설득하는 소통가", "탄탄한 자료와 친절한 설명으로 사람들과 매끄럽게 협업합니다."],
+    CS: ["신중한 살림꾼", "정해진 절차 안에서 꼼꼼하고 꾸준하게 성과를 쌓습니다."]
+  };
+
+  var ITEMS = [
+    { D: "결정을 빠르게 내린다", I: "처음 만난 사람과도 금방 친해진다", S: "누구에게나 한결같은 태도를 유지한다", C: "사실과 근거를 먼저 확인한다" },
+    { D: "목표가 생기면 곧바로 밀어붙인다", I: "모임의 분위기를 밝게 띄운다", S: "상대의 이야기를 끝까지 들어 준다", C: "규칙과 절차를 지키려 한다" },
+    { D: "어렵고 도전적인 과제에 끌린다", I: "떠오른 아이디어를 말로 풀어내길 좋아한다", S: "익숙한 방식으로 일할 때 편하다", C: "세부 사항을 꼼꼼히 챙긴다" },
+    { D: "할 말은 돌려 말하지 않는다", I: "사람들을 설득하는 데 자신 있다", S: "의견이 부딪히면 먼저 양보하는 편이다", C: "실수 없이 정확하게 처리하려 한다" },
+    { D: "경쟁하는 상황에서 힘이 난다", I: "칭찬과 인정을 받으면 더 잘한다", S: "팀에 도움이 될 때 보람을 느낀다", C: "스스로 높은 품질 기준을 세운다" },
+    { D: "모임에서 자연스럽게 주도권을 잡는다", I: "감정을 표정과 말로 잘 드러낸다", S: "차분하고 참을성이 있다", C: "충분히 분석한 뒤에 움직인다" },
+    { D: "과정보다 결과로 평가받고 싶다", I: "여러 사람과 함께 일할 때 즐겁다", S: "안정적인 환경에서 실력을 발휘한다", C: "명확한 기준과 지침이 있을 때 편하다" },
+    { D: "장애물이 있으면 정면으로 돌파한다", I: "어떤 일이든 가능성부터 본다", S: "변화가 생기면 적응할 시간이 필요하다", C: "위험 요소를 미리 따져 본다" },
+    { D: "일의 진행이 느리면 답답하다", I: "혼자 오래 일하면 지루하다", S: "갑작스러운 계획 변경이 부담스럽다", C: "대충 넘어가는 것이 불편하다" },
+    { D: "내가 결정할 권한이 있기를 원한다", I: "사람들 앞에서 이야기하는 것이 즐겁다", S: "동료를 뒤에서 조용히 받쳐 준다", C: "자료를 체계적으로 정리해 둔다" },
+    { D: "위험이 있더라도 기회는 잡는다", I: "상황에 따라 즉흥적으로 계획을 바꾼다", S: "약속한 일은 끝까지 해낸다", C: "계획을 세운 뒤 순서대로 진행한다" },
+    { D: "논쟁에서 쉽게 물러서지 않는다", I: "농담으로 긴장된 분위기를 푼다", S: "다른 사람의 기분을 먼저 살핀다", C: "감정보다 논리로 판단한다" },
+    { D: "여러 일을 동시에 지휘하는 것이 좋다", I: "새로운 사람을 알아 가는 것이 좋다", S: "오래 함께한 사람들과의 관계가 소중하다", C: "한 가지 일에 깊이 몰입하는 것이 좋다" },
+    { D: "문제가 생기면 해결책부터 정해 지시한다", I: "문제가 생겨도 사람들을 밝게 격려한다", S: "문제가 생기면 모두가 편한 방법을 찾는다", C: "문제가 생기면 원인부터 차근차근 분석한다" },
+    { D: "스스로에 대한 확신이 강하다", I: "열정이 주변에 쉽게 전해진다", S: "곁에 있으면 편안하다는 말을 듣는다", C: "믿고 맡길 만큼 정확하다는 말을 듣는다" },
+    { D: "회의에서 결론을 빨리 내리려 한다", I: "회의에서 의견을 활발하게 낸다", S: "회의에서 다른 사람의 의견에 귀 기울인다", C: "회의에서 빠진 데이터나 논리를 짚는다" },
+    { D: "비판을 받아도 크게 흔들리지 않는다", I: "사람들의 반응이 없으면 기운이 빠진다", S: "누군가와 사이가 틀어지면 마음이 오래 불편하다", C: "내 작업에서 오류가 발견되면 가장 신경 쓰인다" },
+    { D: "권한과 책임이 큰 역할을 맡고 싶다", I: "사람들에게 영향을 주는 역할을 맡고 싶다", S: "팀의 화합을 지키는 역할을 맡고 싶다", C: "전문성을 인정받는 역할을 맡고 싶다" },
+    { D: "요점부터 단도직입적으로 말한다", I: "사례와 이야기를 곁들여 생생하게 말한다", S: "부드럽고 친절한 말투로 말한다", C: "정확한 표현을 골라 신중하게 말한다" },
+    { D: "압박을 받으면 더 강하게 통제하려 한다", I: "압박을 받으면 말이 많아지거나 감정이 드러난다", S: "압박을 받으면 속으로 참고 조용해진다", C: "압박을 받으면 더 꼼꼼하게 따지게 된다" },
+    { D: "변화가 필요하면 내가 먼저 시작한다", I: "변화를 신나는 기회로 받아들인다", S: "변화는 충분히 설명을 들은 뒤 받아들인다", C: "변화가 타당한지 먼저 검토한다" },
+    { D: "간섭 없이 독립적으로 일하는 것이 좋다", I: "자유롭고 유연한 분위기가 좋다", S: "예측 가능한 일정이 좋다", C: "체계가 잘 잡힌 조직이 좋다" },
+    { D: "일에서는 목표 달성이 무엇보다 중요하다", I: "일에서는 함께 즐겁게 하는 것이 중요하다", S: "일에서는 서로 믿고 돕는 것이 중요하다", C: "일에서는 올바르게 처리하는 것이 중요하다" },
+    { D: "지는 것을 유난히 싫어한다", I: "사람들과 어울리는 자리가 반갑다", S: "도움을 요청받으면 거절하기 어렵다", C: "결정하기 전에 여러 선택지를 비교한다" }
+  ];
+
+  // 문항별 보기 순서 — 고정 시드로 섞어 누구에게나 같은 순서로 보인다
+  var SHUFFLED = (function () {
+    var seed = 19280501;
+    function rnd() { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; }
+    return ITEMS.map(function () {
+      var a = ORDER.slice();
+      for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+      return a;
+    });
+  })();
+
+  var N = ITEMS.length;
+
+  var SAMPLE = {
+    name: "예시 참가자", org: "영업1팀", completedAt: "2026.09.15",
+    most: { D: 9, I: 7, S: 3, C: 5 },
+    least: { D: 2, I: 3, S: 8, C: 11 }
+  };
+
+  // ---------- state ----------
+  function blankAnswers() { var a = []; for (var i = 0; i < N; i++) a.push({ most: null, least: null }); return a; }
+  var state = { name: "", org: "", answers: blankAnswers(), g: 0, phase: "most", completedAt: null };
+  var locked = false;
+  var summaryText = "";
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function loadStored() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var s = JSON.parse(raw);
+      if (!s || !Array.isArray(s.answers) || s.answers.length !== N) return null;
+      return s;
+    } catch (e) { return null; }
+  }
+  function isValid(s) { return s && Array.isArray(s.answers) && s.answers.length === N; }
+
+  function answeredCount() {
+    return state.answers.filter(function (a) { return a.most && a.least; }).length;
+  }
+  function firstUnanswered() {
+    for (var i = 0; i < N; i++) { var a = state.answers[i]; if (!a.most || !a.least) return i; }
+    return -1;
+  }
+
+  // ---------- helpers ----------
+  var $ = function (s) { return document.querySelector(s); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+  function signed(n) { return n > 0 ? "+" + n : n < 0 ? "−" + Math.abs(n) : "0"; }
+  function today() { var d = new Date(); return d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate()); }
+  function low(t) { return t.toLowerCase(); }
+
+  var toastTimer = null;
+  function toast(msg) {
+    var el = $("#toast"); el.textContent = msg; el.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.hidden = true; }, 2200);
+  }
+
+  function show(view) {
+    ["intro", "quiz", "result"].forEach(function (v) { $("#view-" + v).hidden = v !== view; });
+    $("#wrap").classList.toggle("wide", view === "result");
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  // ---------- intro ----------
+  function quadHTML(mine) {
+    return QUAD.map(function (t) {
+      var T = TYPES[t];
+      return '<div class="quad-cell">' +
+        '<div class="quad-top"><span class="q-letter t-' + t + '">' + t + '</span>' +
+        '<span class="q-name">' + T.ko + '</span>' +
+        (mine === t ? '<span class="q-mine">나의 유형</span>' : '') + '</div>' +
+        '<span class="q-en">' + T.en + (T.marston !== T.en ? ' (' + T.marston + ')' : '') + '</span>' +
+        '<span class="q-keys">' + T.keys + '</span>' +
+        (mine !== undefined ? '<span class="q-tip">이 유형에게는: ' + T.tip + '</span>' : '') +
+        '</div>';
+    }).join("");
+  }
+
+  function renderIntro() {
+    $("#intro-quad").innerHTML = quadHTML();
+    $("#in-name").value = state.name || "";
+    $("#in-org").value = state.org || "";
+    var count = answeredCount();
+    var resume = $("#btn-resume");
+    if (state.completedAt && count === N) {
+      resume.hidden = false; resume.textContent = "내 결과 다시 보기";
+      $("#btn-start").textContent = "처음부터 다시 진단하기";
+    } else if (count > 0 || state.phase === "least") {
+      resume.hidden = false; resume.textContent = "이어서 하기 (" + count + "/" + N + ")";
+      $("#btn-start").textContent = "처음부터 시작하기";
+    } else {
+      resume.hidden = true; $("#btn-start").textContent = "진단 시작하기";
+    }
+  }
+
+  function readFields() {
+    state.name = $("#in-name").value.trim();
+    state.org = $("#in-org").value.trim();
+  }
+
+  // ---------- quiz ----------
+  function renderQuiz(focusTitle) {
+    var g = state.g, a = state.answers[g], phase = state.phase;
+    $("#q-count").innerHTML = pad(g + 1) + ' <span>/ ' + N + '</span>';
+
+    var ticks = "";
+    for (var i = 0; i < N; i++) {
+      var ai = state.answers[i];
+      ticks += '<i class="' + (i === g ? "now" : (ai.most && ai.least ? "done" : "")) + '"></i>';
+    }
+    $("#ticks").innerHTML = ticks;
+
+    $("#ph-most").className = "phase " + (phase === "most" ? "on" : "past");
+    $("#ph-least").className = "phase " + (phase === "least" ? "on" : "");
+
+    if (phase === "most") {
+      $("#q-title").innerHTML = '나와 <em>가장 비슷한</em> 문장은?';
+      $("#q-sub").textContent = "네 문장 중 하나를 고르세요.";
+    } else {
+      $("#q-title").innerHTML = '나와 <em>가장 거리가 먼</em> 문장은?';
+      $("#q-sub").textContent = "남은 세 문장 중 하나를 고르세요.";
+    }
+
+    var html = SHUFFLED[g].map(function (t, k) {
+      var cls = "opt", badge = "", disabled = false, pressed = false;
+      if (a.most === t) {
+        cls += " is-most"; badge = '<span class="opt-badge">가장 그렇다</span>';
+        if (phase === "least") disabled = true; else pressed = true;
+      } else if (a.least === t) {
+        cls += " is-least"; badge = '<span class="opt-badge">가장 아니다</span>';
+        if (phase === "least") pressed = true;
+      }
+      return '<button type="button" class="' + cls + '" data-type="' + t + '"' +
+        (disabled ? ' disabled' : '') + ' aria-pressed="' + pressed + '">' +
+        '<span class="opt-key">' + (k + 1) + '</span>' +
+        '<span class="opt-text">' + esc(ITEMS[g][t]) + '</span>' + badge + '</button>';
+    }).join("");
+    $("#options").innerHTML = html;
+
+    if (focusTitle) { try { $("#q-title").focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  function choose(t) {
+    if (locked) return;
+    var g = state.g, a = state.answers[g];
+    if (state.phase === "most") {
+      a.most = t;
+      if (a.least === t) a.least = null;
+      state.phase = "least";
+      save(); renderQuiz(false);
+    } else {
+      if (t === a.most) return;
+      a.least = t;
+      save(); renderQuiz(false);
+      locked = true;
+      setTimeout(function () {
+        locked = false;
+        if (state.g < N - 1) {
+          state.g += 1; state.phase = "most"; save(); renderQuiz(true);
+          try { window.scrollTo(0, 0); } catch (e) {}
+        } else {
+          finish();
+        }
+      }, 320);
+    }
+  }
+
+  function back() {
+    if (locked) return;
+    if (state.phase === "least") { state.phase = "most"; }
+    else if (state.g > 0) { state.g -= 1; state.phase = "least"; }
+    else { save(); renderIntro(); show("intro"); return; }
+    save(); renderQuiz(true);
+  }
+
+  function finish() {
+    var miss = firstUnanswered();
+    if (miss !== -1) { state.g = miss; state.phase = "most"; save(); renderQuiz(true); return; }
+    state.completedAt = today();
+    save();
+    renderResult(scoreFromState(), false);
+    show("result");
+  }
+
+  function scoreFromState() {
+    var most = { D: 0, I: 0, S: 0, C: 0 }, least = { D: 0, I: 0, S: 0, C: 0 };
+    state.answers.forEach(function (a) { if (a.most) most[a.most]++; if (a.least) least[a.least]++; });
+    return { name: state.name, org: state.org, completedAt: state.completedAt || today(), most: most, least: least };
+  }
+
+  // ---------- result ----------
+  function analyse(r) {
+    var comp = {};
+    ORDER.forEach(function (t) { comp[t] = r.most[t] - r.least[t]; });
+    var ranked = ORDER.slice().sort(function (a, b) {
+      return (comp[b] - comp[a]) || (r.most[b] - r.most[a]) || (ORDER.indexOf(a) - ORDER.indexOf(b));
+    });
+    var primary = ranked[0];
+    var secondary = comp[ranked[1]] > 0 ? ranked[1] : null;
+    var vals = ORDER.map(function (t) { return comp[t]; });
+    var spread = Math.max.apply(null, vals) - Math.min.apply(null, vals);
+    return { comp: comp, primary: primary, secondary: secondary, spread: spread };
+  }
+
+  function barsHTML(r, an) {
+    var maxAbs = Math.max.apply(null, ORDER.map(function (t) { return Math.abs(an.comp[t]); }));
+    var m = Math.max(12, Math.ceil(maxAbs / 6) * 6);
+    var rows = ORDER.map(function (t) {
+      var v = an.comp[t], w = Math.abs(v) / m * 50;
+      var pos = v >= 0 ? 'left:50%;width:' + w + '%' : 'right:50%;width:' + w + '%';
+      return '<div class="bar-row">' +
+        '<span class="bar-letter t-' + t + '">' + t + '</span>' +
+        '<div class="track"><span class="zero"></span>' + (v !== 0 ? '<span class="fill" style="' + pos + ';background:var(--' + low(t) + ')"></span>' : '') + '</div>' +
+        '<span class="bar-val">' + signed(v) + '</span>' +
+        '<span class="bar-meta">' + TYPES[t].ko + ' · 가장 그렇다 ' + r.most[t] + ' · 가장 아니다 ' + r.least[t] + '</span>' +
+        '</div>';
+    }).join("");
+    var h = m / 2;
+    var scale = '<div class="bar-row"><span></span><div class="scale">' +
+      [[-m, 0], [-h, 25], [0, 50], [h, 75], [m, 100]].map(function (p) {
+        return '<span style="left:' + p[1] + '%">' + signed(p[0]) + '</span>';
+      }).join("") + '</div><span></span></div>';
+    return { html: '<div class="bars">' + rows + scale + '</div>', m: m };
+  }
+
+  function quadSVG(an, m) {
+    var c = an.comp;
+    var nx = ((c.I + c.S) - (c.D + c.C)) / 2;
+    var ny = ((c.D + c.I) - (c.S + c.C)) / 2;
+    var clamp = function (v) { return Math.max(-1, Math.min(1, v)); };
+    var cx = 170 + clamp(nx / m) * 112;
+    var cy = 160 - clamp(ny / m) * 112;
+    var meY = cy < 60 ? cy + 26 : cy - 16;
+    return '<svg class="quad-svg" viewBox="0 0 340 320" role="img" aria-label="행동 좌표: 일 중심과 사람 중심, 빠른 템포와 신중한 템포 사이에서 나의 위치">' +
+      '<rect class="qs-d" x="40" y="30" width="130" height="130" rx="0"/>' +
+      '<rect class="qs-i" x="170" y="30" width="130" height="130"/>' +
+      '<rect class="qs-c" x="40" y="160" width="130" height="130"/>' +
+      '<rect class="qs-s" x="170" y="160" width="130" height="130"/>' +
+      '<line class="qs-axis" x1="170" y1="30" x2="170" y2="290"/>' +
+      '<line class="qs-axis" x1="40" y1="160" x2="300" y2="160"/>' +
+      '<text class="qs-letter D" x="54" y="62">D</text><text class="qs-name" x="54" y="80">주도형</text>' +
+      '<text class="qs-letter I" x="286" y="62" text-anchor="end">I</text><text class="qs-name" x="286" y="80" text-anchor="end">사교형</text>' +
+      '<text class="qs-letter C" x="54" y="270">C</text><text class="qs-name" x="54" y="282" dy="-32">신중형</text>' +
+      '<text class="qs-letter S" x="286" y="270" text-anchor="end">S</text><text class="qs-name" x="286" y="282" text-anchor="end" dy="-32">안정형</text>' +
+      '<text class="qs-label" x="170" y="20" text-anchor="middle">빠른 템포 · 적극적</text>' +
+      '<text class="qs-label" x="170" y="310" text-anchor="middle">신중한 템포 · 수용적</text>' +
+      '<text class="qs-label" x="22" y="160" text-anchor="middle" transform="rotate(-90 22 160)">일 중심</text>' +
+      '<text class="qs-label" x="318" y="160" text-anchor="middle" transform="rotate(90 318 160)">사람 중심</text>' +
+      '<circle class="qs-dot" cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="9"/>' +
+      '<text class="qs-me" x="' + cx.toFixed(1) + '" y="' + meY.toFixed(1) + '" text-anchor="middle">나</text>' +
+      '</svg>';
+  }
+
+  function listBlock(title, items, accent) {
+    return '<div class="detail" style="--accent:var(--' + accent + ')"><h3>' + title + '</h3><ul>' +
+      items.map(function (x) { return '<li>' + x + '</li>'; }).join("") + '</ul></div>';
+  }
+
+  function renderResult(r, isSample) {
+    var an = analyse(r), p = an.primary, T = TYPES[p], lp = low(p);
+    var who = r.name ? esc(r.name) + '님의' : '나의';
+    var bars = barsHTML(r, an);
+
+    var blendHTML;
+    if (an.secondary) {
+      var key = p + an.secondary, b = BLENDS[key];
+      blendHTML = '<div class="blend" style="background:var(--' + lp + '-tint)">' +
+        '<span class="blend-label t-' + p + '">조합 ' + p + an.secondary + ' · ' + T.ko + ' + ' + TYPES[an.secondary].ko + '</span>' +
+        '<span class="blend-title">' + b[0] + '</span><p>' + b[1] + '</p>' +
+        (an.spread <= 6 ? '<p class="note">네 경향의 점수 차이가 크지 않아 상황에 따라 다른 방식도 유연하게 꺼내 쓰는 편일 수 있습니다.</p>' : '') +
+        '</div>';
+    } else {
+      blendHTML = '<div class="blend" style="background:var(--' + lp + '-tint)">' +
+        '<span class="blend-label t-' + p + '">뚜렷한 ' + p + ' 경향</span>' +
+        '<span class="blend-title">' + T.ko + '의 특징이 선명하게 나타납니다</span>' +
+        '<p>다른 세 경향은 상대적으로 덜 쓰는 편입니다. 나와 다른 유형의 동료가 어떤 방식을 편하게 느끼는지 아래 표에서 함께 살펴보세요.</p></div>';
+    }
+
+    summaryText =
+      "[DISC 행동유형 자가진단 결과 · 교육용 참고 자료]\n" +
+      (r.name ? "이름: " + r.name + (r.org ? " (" + r.org + ")" : "") + "\n" : (r.org ? "소속: " + r.org + "\n" : "")) +
+      "주 유형: " + p + " " + T.ko + " — " + T.line + "\n" +
+      (an.secondary ? "조합: " + p + an.secondary + " " + BLENDS[p + an.secondary][0] + "\n" : "") +
+      "점수(가장 그렇다−가장 아니다): " + ORDER.map(function (t) { return t + " " + signed(an.comp[t]).replace("−", "-"); }).join(" · ") + "\n" +
+      "진단일: " + r.completedAt;
+
+    var html =
+      (isSample ? '<div class="sample-banner"><span><b>예시 결과</b>입니다. 실제 응답으로 계산된 결과가 아닙니다.</span><button class="btn btn-ghost" type="button" data-act="to-intro" style="min-height:40px">진단 시작하기</button></div>' : '') +
+
+      '<section class="hero">' +
+        '<span class="big-letter t-' + p + '" aria-hidden="true">' + p + '</span>' +
+        '<div class="hero-text">' +
+          '<p class="eyebrow">' + who + ' 주 행동유형 · ' + esc(r.completedAt) + (r.org ? ' · ' + esc(r.org) : '') + '</p>' +
+          '<h1 id="result-title" tabindex="-1">' + T.ko + '<small>' + T.en + '</small></h1>' +
+          '<p class="hero-line">' + T.line + '</p>' +
+        '</div>' +
+      '</section>' +
+
+      blendHTML +
+
+      '<div class="notice"><b>참고용 결과입니다</b>' +
+        '<p>교육용 약식 자가진단으로 계산한 결과라 그날의 상황이나 기분에 따라 달라질 수 있습니다. 유형은 사람을 규정하는 딱지가 아니라, 서로의 방식을 이해하고 대화를 시작하기 위한 도구로 봐 주세요.</p></div>' +
+
+      '<div class="grid2">' +
+        '<section class="panel"><h2>DISC 점수</h2>' + bars.html +
+          '<p class="panel-note">점수 = ‘가장 그렇다’로 고른 수 − ‘가장 아니다’로 고른 수. 0보다 오른쪽일수록 평소 자주 쓰는 행동 경향입니다.</p></section>' +
+        '<section class="panel"><h2>행동 좌표</h2>' + quadSVG(an, bars.m) +
+          '<p class="panel-note">위아래는 일의 템포, 좌우는 관심의 초점을 뜻합니다. 점이 가장자리에 가까울수록 해당 경향이 뚜렷합니다.</p></section>' +
+      '</div>' +
+
+      '<section><h2 class="section-title">' + T.ko + '(' + p + ') 자세히 보기</h2>' +
+        '<div class="detail-grid">' +
+          listBlock("강점", T.strengths, lp) +
+          listBlock("지나치게 쓰일 때", T.overuse, lp) +
+          listBlock("동기가 생기는 순간", T.motivators, lp) +
+          listBlock("피하고 싶은 상황", T.avoid, lp) +
+          listBlock("스트레스를 받으면", T.stress, lp) +
+          listBlock("이 유형과 함께 일할 때", T.workWith, lp) +
+        '</div>' +
+        '<div class="growth" style="--accent:var(--' + lp + ')"><b>성장 포인트</b><p>' + T.growth + '</p></div>' +
+      '</section>' +
+
+      '<section><h2 class="section-title">네 가지 유형 한눈에</h2>' +
+        '<div class="quad">' + quadHTML(p) + '</div>' +
+      '</section>' +
+
+      (isSample ? '' :
+      '<section class="stack" style="gap:12px">' +
+        '<div class="actions">' +
+          '<button class="btn" type="button" data-act="copy">결과 요약 복사</button>' +
+          '<button class="btn btn-ghost" type="button" data-act="restart">처음부터 다시 진단하기</button>' +
+        '</div>' +
+        '<textarea class="copy-fallback" id="copy-fallback" readonly hidden aria-label="결과 요약 텍스트"></textarea>' +
+        '<p class="capture-hint">복사한 요약은 카카오톡이나 메모에 붙여 넣을 수 있습니다. 강사에게 제출할 때는 이 화면을 캡처해도 됩니다.</p>' +
+      '</section>');
+
+    $("#view-result").innerHTML = html;
+    $("#masthead-sub").textContent = isSample ? "예시" : "교육용 약식";
+  }
+
+  function copyText(text) {
+    return new Promise(function (resolve) {
+      var fallback = function () {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = document.execCommand("copy"); document.body.removeChild(ta); resolve(ok);
+        } catch (e) { resolve(false); }
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { resolve(true); }, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  }
+
+  // ---------- events ----------
+  function startFresh() {
+    readFields();
+    state.answers = blankAnswers(); state.g = 0; state.phase = "most"; state.completedAt = null;
+    save(); renderQuiz(true); show("quiz");
+  }
+
+  $("#btn-start").addEventListener("click", startFresh);
+
+  $("#btn-resume").addEventListener("click", function () {
+    readFields();
+    if (state.completedAt && answeredCount() === N) {
+      save(); renderResult(scoreFromState(), false); show("result");
+      try { $("#result-title").focus({ preventScroll: true }); } catch (e) {}
+      return;
+    }
+    var miss = firstUnanswered();
+    if (miss !== -1 && miss !== state.g) { state.g = miss; state.phase = "most"; }
+    save(); renderQuiz(true); show("quiz");
+  });
+
+  $("#btn-sample").addEventListener("click", function () {
+    readFields(); save();
+    renderResult(SAMPLE, true); show("result");
+  });
+
+  ["#in-name", "#in-org"].forEach(function (sel) {
+    $(sel).addEventListener("change", function () { readFields(); save(); });
+  });
+
+  $("#options").addEventListener("click", function (e) {
+    var btn = e.target.closest(".opt");
+    if (!btn || btn.disabled) return;
+    choose(btn.getAttribute("data-type"));
+  });
+
+  $("#btn-back").addEventListener("click", back);
+
+  document.addEventListener("keydown", function (e) {
+    if ($("#view-quiz").hidden) return;
+    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = parseInt(e.key, 10);
+    if (k >= 1 && k <= 4) {
+      var t = SHUFFLED[state.g][k - 1];
+      if (state.phase === "least" && t === state.answers[state.g].most) return;
+      e.preventDefault(); choose(t);
+    }
+  });
+
+  $("#view-result").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-act]");
+    if (!btn) return;
+    var act = btn.getAttribute("data-act");
+    if (act === "copy") {
+      copyText(summaryText).then(function (ok) {
+        if (ok) { toast("결과 요약을 복사했습니다"); }
+        else {
+          var ta = $("#copy-fallback"); ta.value = summaryText; ta.hidden = false; ta.focus(); ta.select();
+          toast("자동 복사가 막혀 있어요. 아래 글을 길게 눌러 복사하세요");
+        }
+      });
+    } else if (act === "restart") {
+      state.answers = blankAnswers(); state.g = 0; state.phase = "most"; state.completedAt = null;
+      save(); $("#masthead-sub").textContent = "교육용 약식"; renderIntro(); show("intro");
+      try { $("#intro-title").focus({ preventScroll: true }); } catch (e2) {}
+    } else if (act === "to-intro") {
+      $("#masthead-sub").textContent = "교육용 약식"; renderIntro(); show("intro");
+    }
+  });
+
+  // ---------- boot ----------
+  var hot = window.claude && window.claude.hot;
+  if (hot && typeof hot.snapshot === "function") {
+    try { hot.snapshot(function () { return state; }); } catch (e) {}
+  }
+
+  function start(data) {
+    var s = isValid(data) ? data : loadStored();
+    if (s) {
+      state.name = s.name || ""; state.org = s.org || "";
+      state.answers = s.answers.map(function (a) {
+        var ok = function (v) { return ORDER.indexOf(v) !== -1 ? v : null; };
+        return { most: ok(a && a.most), least: ok(a && a.least) };
+      });
+      state.g = Math.max(0, Math.min(N - 1, s.g | 0));
+      state.phase = s.phase === "least" && state.answers[state.g].most ? "least" : "most";
+      state.completedAt = s.completedAt || null;
+    }
+    renderIntro();
+    show("intro");
+  }
+
+  if (hot && typeof hot.ready === "function") { hot.ready(start); }
+  else { start(hot && hot.data ? hot.data : {}); }
+})();
+</script>
+
+</html>
