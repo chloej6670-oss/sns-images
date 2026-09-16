@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="회복탄력성 자가진단">
+<meta property="og:description" content="교육용 약식 자가진단 · 36문항 · 약 8분">
+<meta property="og:url" content="https://sns-images-beta.vercel.app/resilience/">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>회복탄력성 자가진단</title>
+<meta name="description" content="3영역 9요인 구조로 살펴보는 교육용 약식 회복탄력성 자가진단">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --bg: #F1F4F2;
+    --surface: #FFFFFF;
+    --soft: #E3EAE6;
+    --line: #D4DCD8;
+    --ink: #16211D;
+    --muted: #59665F;
+    --on-ink: #FFFFFF;
+    --focus: #2C6E63;
+
+    --a: #2C6E63; --a-soft: #E0EDE9;
+    --b: #A9633C; --b-soft: #F2E7DE;
+    --c: #7A5A93; --c-soft: #EBE5F1;
+
+    --display: "Gowun Batang", "Nanum Myeongjo", Georgia, serif;
+    --body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101512; --surface: #19201D; --soft: #242C28; --line: #2D3733;
+      --ink: #E6ECE8; --muted: #9AA8A2; --on-ink: #101512; --focus: #6FC2B2;
+      --a: #5FB3A3; --a-soft: #1C2E2A;
+      --b: #D3925F; --b-soft: #31261E;
+      --c: #A98FC4; --c-soft: #272033;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101512; --surface: #19201D; --soft: #242C28; --line: #2D3733;
+    --ink: #E6ECE8; --muted: #9AA8A2; --on-ink: #101512; --focus: #6FC2B2;
+    --a: #5FB3A3; --a-soft: #1C2E2A;
+    --b: #D3925F; --b-soft: #31261E;
+    --c: #A98FC4; --c-soft: #272033;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--body); font-size: 16px; line-height: 1.7;
+    padding-inline: 16px; word-break: keep-all; overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  .wrap { max-width: 680px; margin: 0 auto; padding-block: 20px 72px; }
+  .wrap.wide { max-width: 940px; }
+  .stack { display: grid; gap: 30px; }
+
+  .masthead { display: flex; align-items: center; gap: 10px; padding-block: 4px 26px; }
+  .leaf { display: flex; gap: 3px; align-items: flex-end; }
+  .leaf i { display: block; width: 6px; border-radius: 3px; }
+  .leaf i:nth-child(1) { height: 10px; background: var(--a); }
+  .leaf i:nth-child(2) { height: 18px; background: var(--b); }
+  .leaf i:nth-child(3) { height: 14px; background: var(--c); }
+  .masthead-title { font-weight: 700; font-size: .9rem; }
+  .masthead-sub { margin-left: auto; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+
+  .tag { justify-self: start; font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1.5px solid var(--ink); }
+  .eyebrow { font-size: .8rem; font-weight: 700; color: var(--muted); letter-spacing: .06em; }
+  .section-title { font-family: var(--display); font-weight: 700; font-size: 1.32rem; margin-bottom: 14px; }
+
+  .intro-head { display: grid; gap: 14px; }
+  .intro-head h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 7.6vw, 2.8rem); line-height: 1.25; letter-spacing: -.01em; }
+  .lead { font-size: 1.06rem; color: var(--muted); max-width: 34em; }
+  .notice { display: grid; gap: 4px; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--line); font-size: .92rem; color: var(--muted); }
+  .notice b { color: var(--ink); font-size: .95rem; }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-block: 16px; border-block: 1px solid var(--line); }
+  .fact { display: flex; align-items: baseline; gap: 6px; }
+  .fact b { font-family: var(--mono); font-weight: 600; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+  .fact span { color: var(--muted); font-size: .92rem; }
+
+  .domains { display: grid; gap: 12px; }
+  .dom {
+    display: grid; gap: 6px; padding: 16px 18px; border-radius: 14px;
+    background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--dc, var(--ink));
+  }
+  .dom-name { font-weight: 700; font-size: 1.05rem; }
+  .dom-desc { color: var(--muted); font-size: .94rem; }
+  .dom-factors { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .chip { font-size: .8rem; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--soft); }
+
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .fields { grid-template-columns: 1fr; } }
+  .field { display: grid; gap: 6px; }
+  .field label { font-size: .88rem; font-weight: 700; }
+  .field label span { color: var(--muted); font-weight: 400; }
+  .field input { height: 50px; padding: 0 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); width: 100%; }
+  .field input:focus { border-color: var(--ink); outline: none; }
+  .fields-note { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; padding: 0 22px; border-radius: 12px;
+    border: 1.5px solid var(--ink); background: var(--ink); color: var(--on-ink);
+    font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform .12s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); font-weight: 500; }
+  .btn-ghost:hover { border-color: var(--muted); }
+  .btn-link { background: none; border: 0; padding: 4px 0; cursor: pointer; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font-size: .92rem; }
+  .btn-link:hover { color: var(--ink); }
+  .cta { display: grid; gap: 10px; }
+  .cta .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cta .row .btn { flex: 1 1 200px; }
+  .cta-foot { display: flex; justify-content: center; }
+
+  /* ---------- quiz ---------- */
+  .quiz-top { position: sticky; top: 0; z-index: 5; background: var(--bg); padding-block: 12px 10px; }
+  .quiz-meta { display: flex; align-items: baseline; gap: 12px; font-size: .88rem; color: var(--muted); }
+  .quiz-meta b { font-family: var(--mono); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .quiz-meta .page { margin-left: auto; font-family: var(--mono); }
+  .pbar { height: 6px; border-radius: 3px; background: var(--soft); margin-top: 8px; overflow: hidden; }
+  .pbar i { display: block; height: 100%; background: var(--ink); border-radius: 3px; transition: width .2s ease; }
+
+  .items { display: grid; gap: 14px; margin-top: 18px; }
+  .item { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 14px; display: grid; gap: 14px; }
+  .item.todo { border-color: var(--b); }
+  .item-head { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+  .item-no { font-family: var(--mono); font-size: .8rem; font-weight: 600; color: var(--muted); padding-top: .3em; font-variant-numeric: tabular-nums; }
+  .item-text { font-size: 1.06rem; line-height: 1.5; }
+  .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .sc {
+    min-height: 52px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface);
+    font-family: var(--mono); font-size: .95rem; font-weight: 600; color: var(--muted); cursor: pointer;
+    transition: background-color .12s ease, border-color .12s ease, color .12s ease;
+  }
+  .sc:hover { border-color: var(--muted); }
+  .sc[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+  .scale-ends { display: flex; justify-content: space-between; font-size: .78rem; color: var(--muted); }
+
+  .quiz-nav { display: flex; gap: 10px; margin-top: 22px; }
+  .quiz-nav .btn { flex: 1 1 auto; }
+  .quiz-hint { margin-top: 14px; font-size: .82rem; color: var(--muted); }
+
+  /* ---------- result ---------- */
+  .sample-banner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; padding: 12px 16px; border-radius: 12px; border: 1.5px dashed var(--muted); font-size: .92rem; }
+  .gauge-wrap { display: grid; grid-template-columns: auto 1fr; gap: 14px 30px; align-items: center; }
+  @media (max-width: 560px) { .gauge-wrap { grid-template-columns: 1fr; } }
+  .gauge { width: 260px; max-width: 100%; height: auto; }
+  .g-track { fill: none; stroke: var(--soft); stroke-width: 18; stroke-linecap: round; }
+  .g-fill { fill: none; stroke: var(--ink); stroke-width: 18; stroke-linecap: round; }
+  .g-num { font-family: var(--mono); font-weight: 600; font-size: 46px; fill: var(--ink); }
+  .g-unit { font-family: var(--body); font-size: 15px; fill: var(--muted); }
+  .g-end { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .band { display: grid; gap: 8px; }
+  .band h1 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 6vw, 2.2rem); line-height: 1.3; }
+  .band p { font-size: 1.02rem; }
+
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 18px; }
+  .panel h2 { font-family: var(--display); font-weight: 700; font-size: 1.18rem; }
+  .panel-note { font-size: .82rem; color: var(--muted); }
+
+  .dgroup { display: grid; gap: 9px; }
+  .dgroup-head { display: flex; align-items: baseline; gap: 10px; border-left: 5px solid var(--dc); padding-left: 10px; }
+  .dgroup-head .name { font-weight: 700; }
+  .dgroup-head .score { margin-left: auto; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .frow { display: grid; grid-template-columns: 96px 1fr 42px; gap: 10px; align-items: center; font-size: .92rem; }
+  .ftrack { height: 20px; border-radius: 6px; background: var(--soft); position: relative; overflow: hidden; }
+  .ftrack i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; display: block; }
+  .fval { font-family: var(--mono); font-size: .88rem; font-variant-numeric: tabular-nums; text-align: right; }
+  .axis { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .72rem; color: var(--muted); padding-left: 106px; padding-right: 52px; }
+
+  .cards { display: grid; gap: 14px; }
+  @media (min-width: 720px) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card { border-radius: 16px; padding: 18px 20px; display: grid; gap: 8px; border: 1.5px solid var(--cc, var(--line)); background: var(--surface); }
+  .card .top { display: flex; align-items: baseline; gap: 8px; }
+  .card .top b { font-size: 1.06rem; }
+  .card .top .sc-num { margin-left: auto; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .card .kind { font-size: .78rem; font-weight: 700; color: var(--cc, var(--muted)); }
+  .card .desc { color: var(--muted); font-size: .94rem; }
+  .card ul { display: grid; gap: 5px; margin-top: 2px; }
+  .card li { position: relative; padding-left: 14px; font-size: .95rem; }
+  .card li::before { content: ""; position: absolute; left: 0; top: .78em; width: 6px; height: 1.5px; background: var(--cc, var(--muted)); }
+
+  .ref-row { display: grid; grid-template-columns: 116px 1fr; gap: 14px; padding-block: 14px; border-top: 1px solid var(--line); }
+  @media (max-width: 520px) { .ref-row { grid-template-columns: 1fr; gap: 4px; } }
+  .ref-row .n { font-weight: 700; font-size: .95rem; }
+  .ref-row .d { color: var(--muted); font-size: .94rem; }
+
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .actions .btn { flex: 1 1 220px; }
+  .copy-fallback { width: 100%; min-height: 150px; padding: 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); font-family: var(--mono); font-size: .82rem; line-height: 1.6; resize: vertical; }
+  .capture-hint { font-size: .85rem; color: var(--muted); text-align: center; }
+  .care { border-radius: 14px; padding: 16px 18px; background: var(--a-soft); display: grid; gap: 4px; font-size: .94rem; }
+  .care b { font-size: .96rem; }
+
+  .footnote { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); display: grid; gap: 6px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: var(--on-ink); padding: 10px 18px; border-radius: 999px; font-size: .9rem; font-weight: 700; box-shadow: 0 6px 24px rgba(0,0,0,.18); z-index: 10; max-width: calc(100% - 32px); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap" id="wrap">
+  <header class="masthead">
+    <div class="leaf" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="masthead-title">회복탄력성 자가진단</span>
+    <span class="masthead-sub">교육용 약식</span>
+  </header>
+
+  <main id="view-intro" class="stack">
+    <div class="intro-head">
+      <span class="tag">교육용 약식 자가진단</span>
+      <p class="eyebrow">마음의 근력을 살펴보는 시간</p>
+      <h1 id="intro-title" tabindex="-1">나는 힘든 일을 겪고<br>어떻게 다시 일어서는가?</h1>
+      <p class="lead">회복탄력성은 어려움을 겪은 뒤 제자리로 돌아오는 마음의 힘입니다. 타고나는 성격이라기보다 연습으로 키울 수 있는 근력에 가깝습니다. 지금 나의 상태를 아홉 가지 힘으로 나누어 살펴봅니다.</p>
+      <div class="notice">
+        <b>시작하기 전에</b>
+        <p>김주환 교수가 제시한 3영역 9요인 구조를 참고해 교육용으로 만든 약식 자가진단입니다. 문항은 새로 작성한 것으로 KRQ-53 검사지가 아니며, 표준화·검증을 거친 심리검사도 아닙니다. 점수는 남과 비교하는 기준이 아니라 지금의 나를 돌아보는 참고 자료로 봐 주세요.</p>
+      </div>
+    </div>
+
+    <div class="facts" aria-label="진단 개요">
+      <div class="fact"><b>36</b><span>문항</span></div>
+      <div class="fact"><b>약 8</b><span>분</span></div>
+      <div class="fact"><b>9</b><span>가지 힘</span></div>
+    </div>
+
+    <section>
+      <h2 class="section-title">세 가지 영역, 아홉 가지 힘</h2>
+      <div class="domains" id="intro-domains"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">응답 방법</h2>
+      <ul class="domains">
+        <li class="dom" style="--dc:var(--line)">
+          <span class="dom-name">평소의 나를 기준으로</span>
+          <span class="dom-desc">되고 싶은 모습이나 유난히 힘들었던 시기가 아니라, 요즘 평소의 내 모습을 떠올리며 답해 주세요.</span>
+        </li>
+        <li class="dom" style="--dc:var(--line)">
+          <span class="dom-name">1점에서 5점까지</span>
+          <span class="dom-desc">1 전혀 그렇지 않다 · 2 그렇지 않다 · 3 보통이다 · 4 그렇다 · 5 매우 그렇다. 오래 고민하지 말고 먼저 떠오르는 대로 고르세요.</span>
+        </li>
+        <li class="dom" style="--dc:var(--line)">
+          <span class="dom-name">정답은 없습니다</span>
+          <span class="dom-desc">좋아 보이려고 답하면 결과가 나에게 도움이 되지 않습니다. 솔직하게 답할수록 쓸모 있는 결과가 나옵니다.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="fields">
+        <div class="field">
+          <label for="in-name">이름 <span>(선택)</span></label>
+          <input id="in-name" type="text" autocomplete="name" maxlength="20" placeholder="홍길동">
+        </div>
+        <div class="field">
+          <label for="in-org">소속·과정명 <span>(선택)</span></label>
+          <input id="in-org" type="text" maxlength="30" placeholder="영업1팀">
+        </div>
+      </div>
+      <p class="fields-note">입력한 내용과 응답은 이 기기의 브라우저에만 저장되며 어디에도 전송되지 않습니다.</p>
+    </section>
+
+    <div class="cta">
+      <div class="row">
+        <button class="btn" id="btn-start" type="button">진단 시작하기</button>
+        <button class="btn btn-ghost" id="btn-resume" type="button" hidden>이어서 하기</button>
+      </div>
+      <div class="cta-foot"><button class="btn-link" id="btn-sample" type="button">결과 화면 예시 먼저 보기</button></div>
+    </div>
+  </main>
+
+  <main id="view-quiz" hidden>
+    <div class="quiz-top">
+      <div class="quiz-meta">
+        <span><b id="q-done">0</b> / 36 응답</span>
+        <span class="page" id="q-page">1 / 6</span>
+      </div>
+      <div class="pbar"><i id="q-bar" style="width:0%"></i></div>
+    </div>
+    <h2 id="q-title" tabindex="-1" class="section-title" style="margin-top:18px">평소의 나와 얼마나 비슷한가요?</h2>
+    <ul class="items" id="items"></ul>
+    <div class="quiz-nav">
+      <button class="btn btn-ghost" id="btn-prev" type="button">이전</button>
+      <button class="btn" id="btn-next" type="button">다음</button>
+    </div>
+    <p class="quiz-hint">응답은 자동 저장되어 창을 닫아도 이어서 할 수 있습니다.</p>
+  </main>
+
+  <main id="view-result" class="stack" hidden></main>
+
+  <footer class="footnote">
+    <p>본 진단은 회복탄력성의 3영역 9요인 구조를 참고해 교육용으로 구성한 약식 자가진단입니다. 표준화된 심리검사나 임상 진단 도구가 아니며, 채용·평가 목적으로는 사용할 수 없습니다.</p>
+    <p>마음이 오래 힘들거나 일상이 버겁게 느껴진다면 혼자 견디지 마시고 도움을 받아 보세요. 정신건강상담전화 1577-0199 (24시간)</p>
+    <p>제작 (주)티케그룹</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var KEY = "resilience-selfcheck-v1";
+  var PER_PAGE = 6;
+
+  var DOMAINS = [
+    { key: "A", name: "자기조절능력", color: "a",
+      desc: "감정과 충동을 스스로 다루고, 어려움의 원인을 균형 있게 해석하는 힘",
+      factors: ["emotion", "impulse", "cause"] },
+    { key: "B", name: "대인관계능력", color: "b",
+      desc: "생각을 주고받고 상대를 헤아리며, 서로 기댈 수 있는 관계를 만드는 힘",
+      factors: ["comm", "empathy", "connect"] },
+    { key: "C", name: "긍정성", color: "c",
+      desc: "앞날을 낙관하고 지금의 삶에서 좋은 것을 알아차리는 태도",
+      factors: ["optimism", "life", "gratitude"] }
+  ];
+
+  var FACTORS = {
+    emotion: {
+      name: "감정조절력", domain: "A",
+      desc: "감정에 휩쓸리지 않고 필요한 순간 스스로를 가라앉히는 힘",
+      use: "감정이 격해진 자리에서 온도를 낮추는 역할을 할 수 있습니다.",
+      tips: ["감정이 올라오면 먼저 이름을 붙여 보세요. “지금 나는 서운하구나” 한 문장이면 충분합니다.", "답하기 전 10초, 숨을 길게 내쉬는 습관을 만들어 보세요."]
+    },
+    impulse: {
+      name: "충동통제력", domain: "A",
+      desc: "당장의 편안함보다 목표를 앞에 두고 행동을 조절하는 힘",
+      use: "미루기 쉬운 일을 끝까지 끌고 가는 추진력이 됩니다.",
+      tips: ["목표를 오늘 할 수 있는 크기로 쪼개 한 가지만 정해 보세요.", "미루게 만드는 환경을 미리 치워 두세요. 의지보다 환경이 힘이 셉니다."]
+    },
+    cause: {
+      name: "원인분석력", domain: "A",
+      desc: "문제의 원인을 내 탓도 남 탓도 아닌 사실 중심으로 해석하는 힘",
+      use: "같은 실패를 반복하지 않도록 팀의 학습을 돕습니다.",
+      tips: ["일이 어긋나면 ‘상황 / 내가 한 행동 / 결과’ 세 칸으로 적어 보세요.", "“내 탓” 말고 다른 설명을 세 가지 찾아본 뒤 결론을 내려 보세요."]
+    },
+    comm: {
+      name: "소통능력", domain: "B",
+      desc: "내 생각과 감정을 전하고 상대의 말을 끝까지 듣는 힘",
+      use: "오해가 커지기 전에 대화로 풀어내는 사람이 됩니다.",
+      tips: ["들은 내용을 한 문장으로 요약해 되물어 보세요. “~라는 말씀이시죠?”", "‘너는’ 대신 ‘나는’으로 시작하는 문장으로 말해 보세요."]
+    },
+    empathy: {
+      name: "공감능력", domain: "B",
+      desc: "상대의 표정과 말 뒤에 있는 감정을 알아차리는 힘",
+      use: "힘든 사람이 먼저 찾게 되는 안전한 사람이 됩니다.",
+      tips: ["조언보다 감정 확인이 먼저입니다. “많이 속상했겠다” 한마디로 시작해 보세요.", "하루에 한 번, 상대의 입장에서 그 상황을 설명해 보세요."]
+    },
+    connect: {
+      name: "자아확장력", domain: "B",
+      desc: "나를 넘어 사람들과 이어져 있다고 느끼고 서로 돕는 힘",
+      use: "혼자 버티지 않고 함께 회복하는 관계망을 만듭니다.",
+      tips: ["오늘 안부를 물을 사람 한 명을 정해 연락해 보세요.", "도움을 청하는 연습을 해 보세요. 부탁은 관계를 약하게 만들지 않습니다."]
+    },
+    optimism: {
+      name: "자아낙관성", domain: "C",
+      desc: "어려움을 지나갈 일로 보고 해낼 수 있다고 믿는 태도",
+      use: "팀이 흔들릴 때 다시 해 보자고 말할 수 있는 힘이 됩니다.",
+      tips: ["걱정이 커지면 최악·최선·현실 시나리오를 각각 적어 보세요.", "작게라도 해낸 일을 기록해 두고 힘 빠질 때 꺼내 보세요."]
+    },
+    life: {
+      name: "생활만족도", domain: "C",
+      desc: "지금의 내 삶에 대해 느끼는 전반적인 만족감",
+      use: "일상이 단단해 웬만한 일에 덜 흔들립니다.",
+      tips: ["하루 중 시간 가는 줄 몰랐던 순간을 일주일만 적어 보세요.", "그 순간을 늘릴 방법을 한 가지만 정해 실천해 보세요."]
+    },
+    gratitude: {
+      name: "감사하기", domain: "C",
+      desc: "일상에서 좋은 것을 알아차리고 표현하는 습관",
+      use: "주변 사람들이 인정받는다고 느끼게 만듭니다.",
+      tips: ["잠들기 전 오늘 고마웠던 일 세 가지를 적어 보세요.", "고마운 마음을 속으로만 두지 말고 그 사람에게 직접 전해 보세요."]
+    }
+  };
+
+  var ITEMS = [
+    { f: "emotion", t: "화가 나는 일이 있어도 감정에 휩쓸리지 않고 차분해질 수 있다" },
+    { f: "emotion", t: "기분이 상해도 해야 할 일에 다시 집중할 수 있다" },
+    { f: "emotion", t: "스트레스를 받으면 기분이 오래도록 가라앉아 있다", r: true },
+    { f: "emotion", t: "긴장되는 상황에서 스스로를 진정시키는 나만의 방법이 있다" },
+
+    { f: "impulse", t: "하기 싫은 일이라도 필요하다면 끝까지 해낸다" },
+    { f: "impulse", t: "당장의 편안함보다 나중의 결과를 생각해 행동을 조절한다" },
+    { f: "impulse", t: "화가 나면 말이나 행동이 먼저 나가는 편이다", r: true },
+    { f: "impulse", t: "목표를 세우면 계획한 대로 꾸준히 실천하는 편이다" },
+
+    { f: "cause", t: "일이 잘못되면 무엇이 원인이었는지 차분히 따져 본다" },
+    { f: "cause", t: "문제가 생기면 여러 가능성을 놓고 상황을 살펴본다" },
+    { f: "cause", t: "안 좋은 일이 생기면 대개 내 탓이라고 생각한다", r: true },
+    { f: "cause", t: "실패한 경험에서 다음에 바꿀 점을 찾아낸다" },
+
+    { f: "comm", t: "내 생각과 감정을 상대가 이해하기 쉽게 전달한다" },
+    { f: "comm", t: "의견이 다를 때도 대화로 풀어 가는 편이다" },
+    { f: "comm", t: "어색한 상황에서 먼저 말을 꺼내기가 어렵다", r: true },
+    { f: "comm", t: "상대의 말을 끊지 않고 끝까지 듣는다" },
+
+    { f: "empathy", t: "상대의 표정이나 말투에서 기분을 알아차리는 편이다" },
+    { f: "empathy", t: "다른 사람의 입장이 되어 생각해 본다" },
+    { f: "empathy", t: "누군가 힘들어할 때 어떻게 반응해야 할지 잘 모르겠다", r: true },
+    { f: "empathy", t: "사람들이 나에게 고민을 편하게 털어놓는 편이다" },
+
+    { f: "connect", t: "힘든 일이 있을 때 도움을 청할 사람이 있다" },
+    { f: "connect", t: "내가 속한 모임이나 조직에 소속감을 느낀다" },
+    { f: "connect", t: "나를 진심으로 이해해 주는 사람이 거의 없다고 느낀다", r: true },
+    { f: "connect", t: "주변 사람들과 서로 도움을 주고받는다" },
+
+    { f: "optimism", t: "어려운 일이 닥쳐도 결국 잘 해결될 거라고 믿는다" },
+    { f: "optimism", t: "새로운 일을 시작할 때 잘 해낼 수 있을 것 같다" },
+    { f: "optimism", t: "앞으로의 일을 생각하면 걱정이 앞선다", r: true },
+    { f: "optimism", t: "실수를 해도 나 자신을 너무 몰아세우지 않는다" },
+
+    { f: "life", t: "요즘 내 삶에 대체로 만족한다" },
+    { f: "life", t: "하루하루 지내며 재미나 보람을 느낀다" },
+    { f: "life", t: "지금의 내 생활은 내가 바라던 모습과 거리가 멀다", r: true },
+    { f: "life", t: "내가 하는 일에서 의미를 느낀다" },
+
+    { f: "gratitude", t: "사소한 일에도 고마움을 느낄 때가 많다" },
+    { f: "gratitude", t: "하루를 돌아보며 좋았던 점을 떠올리곤 한다" },
+    { f: "gratitude", t: "내가 가진 것보다 부족한 것이 먼저 눈에 들어온다", r: true },
+    { f: "gratitude", t: "주변 사람들에게 고맙다는 표현을 자주 한다" }
+  ];
+
+  var N = ITEMS.length;
+  var PAGES = Math.ceil(N / PER_PAGE);
+
+  // 같은 요인 문항이 몰리지 않도록 고정 시드로 한 번 섞어 둔다
+  var VIEW = (function () {
+    var seed = 20110315;
+    function rnd() { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; }
+    var idx = ITEMS.map(function (_, i) { return i; });
+    for (var i = idx.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+    return idx;
+  })();
+
+  var SAMPLE = {
+    name: "예시 참가자", org: "영업1팀", completedAt: "2026.09.16",
+    raw: { emotion: 13, impulse: 16, cause: 15, comm: 17, empathy: 18, connect: 12, optimism: 14, life: 11, gratitude: 16 }
+  };
+
+  var BANDS = [
+    { min: 78, title: "단단하게 버티고 있습니다",
+      desc: "어려움이 와도 스스로를 추스르고 관계 속에서 힘을 얻는 편입니다. 지금의 방식이 잘 작동하고 있으니, 가장 낮게 나온 힘 하나만 보태면 더 안정적입니다." },
+    { min: 62, title: "대체로 안정적입니다",
+      desc: "대부분의 상황에서 다시 일어설 힘을 갖고 있습니다. 아래 프로필에서 낮게 나온 부분이, 지친 날에 가장 먼저 흔들리는 자리입니다." },
+    { min: 46, title: "평소에는 괜찮지만 쉽게 지칩니다",
+      desc: "큰 어려움이 없을 때는 잘 지내지만 일이 겹치면 회복이 더딜 수 있습니다. 가장 낮은 힘 한 가지를 골라 2주만 연습해 보세요." },
+    { min: 0, title: "지금은 나를 돌볼 때입니다",
+      desc: "요즘 마음이 많이 소진되어 있다는 신호입니다. 회복탄력성은 연습으로 자라는 힘이니 아주 작은 것부터 시작하고, 혼자 버겁다면 주변과 전문가의 도움을 받으세요." }
+  ];
+
+  function levelOf(p) { return p >= 78 ? "강점" : p >= 62 ? "안정" : p >= 46 ? "보통" : "낮음"; }
+
+  // ---------- state ----------
+  function blank() { var a = []; for (var i = 0; i < N; i++) a.push(null); return a; }
+  var state = { name: "", org: "", answers: blank(), page: 0, completedAt: null };
+  var summaryText = "";
+  var advancing = false;
+
+  var $ = function (s) { return document.querySelector(s); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
+  function today() { var d = new Date(); return d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate()); }
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function loadStored() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var s = JSON.parse(raw);
+      if (!s || !Array.isArray(s.answers) || s.answers.length !== N) return null;
+      return s;
+    } catch (e) { return null; }
+  }
+  function answeredCount() { return state.answers.filter(function (v) { return v >= 1 && v <= 5; }).length; }
+  function firstUnanswered() { for (var i = 0; i < N; i++) { if (!state.answers[VIEW[i]]) return i; } return -1; }
+
+  var toastTimer = null;
+  function toast(msg) {
+    var el = $("#toast"); el.textContent = msg; el.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.hidden = true; }, 2200);
+  }
+  function show(view) {
+    ["intro", "quiz", "result"].forEach(function (v) { $("#view-" + v).hidden = v !== view; });
+    $("#wrap").classList.toggle("wide", view === "result");
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  // ---------- intro ----------
+  function renderIntro() {
+    $("#intro-domains").innerHTML = DOMAINS.map(function (d) {
+      return '<div class="dom" style="--dc:var(--' + d.color + ')">' +
+        '<span class="dom-name">' + d.name + '</span>' +
+        '<span class="dom-desc">' + d.desc + '</span>' +
+        '<span class="dom-factors">' + d.factors.map(function (f) { return '<span class="chip">' + FACTORS[f].name + '</span>'; }).join("") + '</span>' +
+        '</div>';
+    }).join("");
+
+    $("#in-name").value = state.name || "";
+    $("#in-org").value = state.org || "";
+    var count = answeredCount(), resume = $("#btn-resume");
+    if (state.completedAt && count === N) {
+      resume.hidden = false; resume.textContent = "내 결과 다시 보기";
+      $("#btn-start").textContent = "처음부터 다시 진단하기";
+    } else if (count > 0) {
+      resume.hidden = false; resume.textContent = "이어서 하기 (" + count + "/" + N + ")";
+      $("#btn-start").textContent = "처음부터 시작하기";
+    } else {
+      resume.hidden = true; $("#btn-start").textContent = "진단 시작하기";
+    }
+  }
+  function readFields() { state.name = $("#in-name").value.trim(); state.org = $("#in-org").value.trim(); }
+
+  // ---------- quiz ----------
+  function renderQuiz(focus) {
+    var page = state.page, start = page * PER_PAGE;
+    var done = answeredCount();
+    $("#q-done").textContent = done;
+    $("#q-page").textContent = (page + 1) + " / " + PAGES;
+    $("#q-bar").style.width = (done / N * 100).toFixed(1) + "%";
+    $("#btn-prev").textContent = page === 0 ? "처음으로" : "이전";
+    $("#btn-next").textContent = page === PAGES - 1 ? "결과 보기" : "다음";
+
+    var html = "";
+    for (var k = start; k < Math.min(start + PER_PAGE, N); k++) {
+      var i = VIEW[k], it = ITEMS[i], v = state.answers[i];
+      html += '<li class="item" id="item-' + k + '">' +
+        '<div class="item-head"><span class="item-no">' + pad(k + 1) + '</span>' +
+        '<p class="item-text" id="itxt-' + k + '">' + esc(it.t) + '</p></div>' +
+        '<div class="scale" role="group" aria-labelledby="itxt-' + k + '">';
+      for (var s = 1; s <= 5; s++) {
+        html += '<button type="button" class="sc" data-i="' + i + '" data-v="' + s + '" aria-pressed="' + (v === s) + '" aria-label="' + s + '점">' + s + '</button>';
+      }
+      html += '</div><div class="scale-ends"><span>전혀 그렇지 않다</span><span>매우 그렇다</span></div></li>';
+    }
+    $("#items").innerHTML = html;
+    if (focus) { try { $("#q-title").focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  function pageComplete(page) {
+    var start = page * PER_PAGE;
+    for (var k = start; k < Math.min(start + PER_PAGE, N); k++) { if (!state.answers[VIEW[k]]) return false; }
+    return true;
+  }
+
+  function goPage(p, focus) {
+    state.page = Math.max(0, Math.min(PAGES - 1, p));
+    save(); renderQuiz(focus);
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  $("#items").addEventListener("click", function (e) {
+    var btn = e.target.closest(".sc");
+    if (!btn || advancing) return;
+    var i = parseInt(btn.getAttribute("data-i"), 10);
+    var v = parseInt(btn.getAttribute("data-v"), 10);
+    state.answers[i] = v;
+    save();
+    var wrapEl = btn.closest(".scale");
+    Array.prototype.forEach.call(wrapEl.querySelectorAll(".sc"), function (b) {
+      b.setAttribute("aria-pressed", String(parseInt(b.getAttribute("data-v"), 10) === v));
+    });
+    btn.closest(".item").classList.remove("todo");
+    var done = answeredCount();
+    $("#q-done").textContent = done;
+    $("#q-bar").style.width = (done / N * 100).toFixed(1) + "%";
+
+    if (pageComplete(state.page) && state.page < PAGES - 1) {
+      advancing = true;
+      setTimeout(function () { advancing = false; goPage(state.page + 1, true); }, 380);
+    }
+  });
+
+  $("#btn-prev").addEventListener("click", function () {
+    if (state.page === 0) { save(); renderIntro(); show("intro"); return; }
+    goPage(state.page - 1, true);
+  });
+
+  $("#btn-next").addEventListener("click", function () {
+    if (!pageComplete(state.page)) {
+      var start = state.page * PER_PAGE;
+      for (var k = start; k < Math.min(start + PER_PAGE, N); k++) {
+        if (!state.answers[VIEW[k]]) {
+          var el = $("#item-" + k);
+          el.classList.add("todo");
+          try { el.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (e) { el.scrollIntoView(); }
+          break;
+        }
+      }
+      toast("아직 답하지 않은 문항이 있어요");
+      return;
+    }
+    if (state.page < PAGES - 1) { goPage(state.page + 1, true); return; }
+    finish();
+  });
+
+  function finish() {
+    var miss = firstUnanswered();
+    if (miss !== -1) { goPage(Math.floor(miss / PER_PAGE), true); toast("아직 답하지 않은 문항이 있어요"); return; }
+    state.completedAt = today(); save();
+    renderResult(scoreFromState(), false);
+    show("result");
+  }
+
+  function scoreFromState() {
+    var raw = {};
+    Object.keys(FACTORS).forEach(function (f) { raw[f] = 0; });
+    ITEMS.forEach(function (it, i) {
+      var v = state.answers[i] || 3;
+      raw[it.f] += it.r ? 6 - v : v;
+    });
+    return { name: state.name, org: state.org, completedAt: state.completedAt || today(), raw: raw };
+  }
+
+  // ---------- result ----------
+  function analyse(r) {
+    var pct = {}, keys = Object.keys(FACTORS);
+    keys.forEach(function (f) { pct[f] = Math.round((r.raw[f] - 4) / 16 * 100); });
+    var dom = {};
+    DOMAINS.forEach(function (d) {
+      dom[d.key] = Math.round(d.factors.reduce(function (s, f) { return s + pct[f]; }, 0) / d.factors.length);
+    });
+    var total = Math.round(keys.reduce(function (s, f) { return s + pct[f]; }, 0) / keys.length);
+    var ranked = keys.slice().sort(function (a, b) { return pct[b] - pct[a]; });
+    var band = BANDS.filter(function (b) { return total >= b.min; })[0];
+    return { pct: pct, dom: dom, total: total, ranked: ranked, band: band };
+  }
+
+  function gaugeSVG(total) {
+    var LEN = 314.159;
+    return '<svg class="gauge" viewBox="0 0 260 168" role="img" aria-label="종합 점수 ' + total + '점 (100점 만점)">' +
+      '<path class="g-track" d="M 30 130 A 100 100 0 0 1 230 130"/>' +
+      '<path class="g-fill" d="M 30 130 A 100 100 0 0 1 230 130" stroke-dasharray="' + (total / 100 * LEN).toFixed(1) + ' ' + LEN + '"/>' +
+      '<text class="g-num" x="130" y="118" text-anchor="middle">' + total + '</text>' +
+      '<text class="g-unit" x="130" y="142" text-anchor="middle">100점 기준</text>' +
+      '<text class="g-end" x="30" y="156" text-anchor="middle">0</text>' +
+      '<text class="g-end" x="230" y="156" text-anchor="middle">100</text>' +
+      '</svg>';
+  }
+
+  function profileHTML(an) {
+    return DOMAINS.map(function (d) {
+      var rows = d.factors.map(function (f) {
+        var p = an.pct[f];
+        return '<div class="frow"><span>' + FACTORS[f].name + '</span>' +
+          '<span class="ftrack"><i style="width:' + Math.max(p, 1) + '%;background:var(--' + d.color + ')"></i></span>' +
+          '<span class="fval">' + p + '</span></div>';
+      }).join("");
+      return '<div class="dgroup" style="--dc:var(--' + d.color + ')">' +
+        '<div class="dgroup-head"><span class="name">' + d.name + '</span><span class="score">' + an.dom[d.key] + '</span></div>' +
+        rows + '</div>';
+    }).join("");
+  }
+
+  function cardHTML(f, p, kind, color) {
+    var F = FACTORS[f];
+    var body = kind === "강점"
+      ? '<p class="desc">' + F.desc + '</p><ul><li>' + F.use + '</li></ul>'
+      : '<p class="desc">' + F.desc + '</p><ul>' + F.tips.map(function (t) { return '<li>' + t + '</li>'; }).join("") + '</ul>';
+    return '<div class="card" style="--cc:var(--' + color + ')">' +
+      '<span class="kind">' + (kind === "강점" ? "지금 나를 받쳐 주는 힘" : "지금 키우면 좋은 힘") + '</span>' +
+      '<div class="top"><b>' + F.name + '</b><span class="sc-num">' + p + '</span></div>' + body + '</div>';
+  }
+
+  function renderResult(r, isSample) {
+    var an = analyse(r);
+    var who = r.name ? esc(r.name) + "님의" : "나의";
+    var top = an.ranked.slice(0, 2), low = an.ranked.slice(-2).reverse();
+    var colorOf = function (f) { return DOMAINS.filter(function (d) { return d.key === FACTORS[f].domain; })[0].color; };
+
+    var needCare = an.total < 46 || an.pct.life < 40 || an.pct.optimism < 40;
+
+    summaryText =
+      "[회복탄력성 자가진단 결과 · 교육용 참고 자료]\n" +
+      (r.name ? "이름: " + r.name + (r.org ? " (" + r.org + ")" : "") + "\n" : (r.org ? "소속: " + r.org + "\n" : "")) +
+      "종합: " + an.total + " / 100 — " + an.band.title + "\n" +
+      "영역: " + DOMAINS.map(function (d) { return d.name + " " + an.dom[d.key]; }).join(" · ") + "\n" +
+      "요인: " + Object.keys(FACTORS).map(function (f) { return FACTORS[f].name + " " + an.pct[f]; }).join(" · ") + "\n" +
+      "가장 높은 힘: " + FACTORS[top[0]].name + " / 가장 낮은 힘: " + FACTORS[low[0]].name + "\n" +
+      "진단일: " + r.completedAt;
+
+    var html =
+      (isSample ? '<div class="sample-banner"><span><b>예시 결과</b>입니다. 실제 응답으로 계산된 결과가 아닙니다.</span><button class="btn btn-ghost" type="button" data-act="to-intro" style="min-height:40px">진단 시작하기</button></div>' : '') +
+
+      '<section class="gauge-wrap">' + gaugeSVG(an.total) +
+        '<div class="band">' +
+          '<p class="eyebrow">' + who + ' 회복탄력성 · ' + esc(r.completedAt) + (r.org ? " · " + esc(r.org) : "") + '</p>' +
+          '<h1 id="result-title" tabindex="-1">' + an.band.title + '</h1>' +
+          '<p>' + an.band.desc + '</p>' +
+        '</div>' +
+      '</section>' +
+
+      '<div class="notice"><b>참고용 결과입니다</b>' +
+        '<p>교육용 약식 자가진단으로 계산한 점수라 그날의 컨디션에 따라 달라질 수 있고, 다른 사람과 비교하는 기준이 아닙니다. 아홉 가지 중 어떤 힘이 나에게 더 필요한지 살펴보는 용도로 봐 주세요.</p></div>' +
+
+      '<section class="panel"><h2>아홉 가지 힘의 프로필</h2>' +
+        profileHTML(an) +
+        '<div class="axis"><span>0</span><span>50</span><span>100</span></div>' +
+        '<p class="panel-note">각 점수는 해당 문항에 내가 답한 정도를 100점으로 환산한 값입니다. 영역 점수는 그 영역에 속한 세 힘의 평균입니다.</p>' +
+      '</section>' +
+
+      '<section><h2 class="section-title">지금 나의 힘과, 키우면 좋은 힘</h2><div class="cards">' +
+        cardHTML(top[0], an.pct[top[0]], "강점", colorOf(top[0])) +
+        cardHTML(low[0], an.pct[low[0]], "성장", colorOf(low[0])) +
+        cardHTML(top[1], an.pct[top[1]], "강점", colorOf(top[1])) +
+        cardHTML(low[1], an.pct[low[1]], "성장", colorOf(low[1])) +
+      '</div></section>' +
+
+      (needCare ? '<div class="care"><b>요즘 많이 지쳐 있다면</b>' +
+        '<p>점수가 낮게 나온 것은 내가 부족하다는 뜻이 아니라, 지금 회복할 시간이 필요하다는 신호에 가깝습니다. 잘 자고 잘 먹는 것부터 챙기시고, 마음이 오래 무겁다면 정신건강상담전화 1577-0199(24시간)이나 가까운 전문가의 도움을 받아 보세요.</p></div>' : '') +
+
+      '<section><h2 class="section-title">아홉 가지 힘 설명</h2><div>' +
+        Object.keys(FACTORS).map(function (f) {
+          return '<div class="ref-row"><span class="n">' + FACTORS[f].name + '</span><span class="d">' + FACTORS[f].desc + '</span></div>';
+        }).join("") +
+      '</div></section>' +
+
+      (isSample ? '' :
+      '<section class="stack" style="gap:12px">' +
+        '<div class="actions">' +
+          '<button class="btn" type="button" data-act="copy">결과 요약 복사</button>' +
+          '<button class="btn btn-ghost" type="button" data-act="restart">처음부터 다시 진단하기</button>' +
+        '</div>' +
+        '<textarea class="copy-fallback" id="copy-fallback" readonly hidden aria-label="결과 요약 텍스트"></textarea>' +
+        '<p class="capture-hint">복사한 요약은 메모나 카카오톡에 붙여 넣을 수 있습니다. 결과는 이 기기에만 저장됩니다.</p>' +
+      '</section>');
+
+    $("#view-result").innerHTML = html;
+  }
+
+  function copyText(text) {
+    return new Promise(function (resolve) {
+      var fallback = function () {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = document.execCommand("copy"); document.body.removeChild(ta); resolve(ok);
+        } catch (e) { resolve(false); }
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { resolve(true); }, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  }
+
+  // ---------- events ----------
+  $("#btn-start").addEventListener("click", function () {
+    readFields();
+    state.answers = blank(); state.page = 0; state.completedAt = null;
+    save(); renderQuiz(true); show("quiz");
+  });
+
+  $("#btn-resume").addEventListener("click", function () {
+    readFields();
+    if (state.completedAt && answeredCount() === N) {
+      save(); renderResult(scoreFromState(), false); show("result");
+      try { $("#result-title").focus({ preventScroll: true }); } catch (e) {}
+      return;
+    }
+    var miss = firstUnanswered();
+    save(); renderQuiz(true); show("quiz");
+    if (miss !== -1) { goPage(Math.floor(miss / PER_PAGE), true); }
+  });
+
+  $("#btn-sample").addEventListener("click", function () {
+    readFields(); save();
+    renderResult(SAMPLE, true); show("result");
+  });
+
+  ["#in-name", "#in-org"].forEach(function (sel) {
+    $(sel).addEventListener("change", function () { readFields(); save(); });
+  });
+
+  $("#view-result").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-act]");
+    if (!btn) return;
+    var act = btn.getAttribute("data-act");
+    if (act === "copy") {
+      copyText(summaryText).then(function (ok) {
+        if (ok) { toast("결과 요약을 복사했습니다"); }
+        else {
+          var ta = $("#copy-fallback"); ta.value = summaryText; ta.hidden = false; ta.focus(); ta.select();
+          toast("자동 복사가 막혀 있어요. 아래 글을 길게 눌러 복사하세요");
+        }
+      });
+    } else if (act === "restart") {
+      state.answers = blank(); state.page = 0; state.completedAt = null;
+      save(); renderIntro(); show("intro");
+      try { $("#intro-title").focus({ preventScroll: true }); } catch (e2) {}
+    } else if (act === "to-intro") {
+      renderIntro(); show("intro");
+    }
+  });
+
+  // ---------- boot ----------
+  var hot = window.claude && window.claude.hot;
+  if (hot && typeof hot.snapshot === "function") {
+    try { hot.snapshot(function () { return state; }); } catch (e) {}
+  }
+
+  function start(data) {
+    var s = (data && Array.isArray(data.answers) && data.answers.length === N) ? data : loadStored();
+    if (s) {
+      state.name = s.name || ""; state.org = s.org || "";
+      state.answers = s.answers.map(function (v) { return (v >= 1 && v <= 5) ? v : null; });
+      state.page = Math.max(0, Math.min(PAGES - 1, s.page | 0));
+      state.completedAt = s.completedAt || null;
+    }
+    renderIntro();
+    show("intro");
+  }
+
+  if (hot && typeof hot.ready === "function") { hot.ready(start); }
+  else { start(hot && hot.data ? hot.data : {}); }
+})();
+</script>
+
+</html>
