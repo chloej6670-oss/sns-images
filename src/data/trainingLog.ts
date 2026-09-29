@@ -15,6 +15,15 @@ export type TrainingRecord = {
 
 export const trainingLog: TrainingRecord[] = [
   {
+    id: "224383685504",
+    title: "공공기관 취업 특강, 자소서부터 모의면접까지 6시간에 (청년인턴 12명 만족도 4.8점)",
+    date: "2026-08-19",
+    summary: "공공기관 취업 준비에서 가장 자주 막히는 지점은 자기소개서입니다. 인터넷에서 본 문장을 옮겨 적으면 서류는 통과해도 면접에서 곧바로 드러납니다. 본인 이야기가 없기 때문입니다.",
+    thumbnail: "",
+    tags: ["취업교육", "자기소개서컨설팅", "면접코칭", "공공기관취업"],
+    url: "https://tychegroup.tistory.com/2"
+  },
+  {
     id: "224382426084",
     title: "SNS 자동화로 블로그·인스타·유튜브까지 자동 발행하기 (과정 수강 후기)",
     date: "2026-08-18",
